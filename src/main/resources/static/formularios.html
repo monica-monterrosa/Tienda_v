@@ -1,0 +1,82 @@
+
+<html>
+    <head>
+        <title>TechShop</title>
+        <meta charset="UTF-8">
+    </head>
+    <body>
+        <section>
+            <h2>Ejemplos de formularios</h2>
+            <article>
+                <header>Ingrese la información</header>
+                <form action="/cliente/ingresar" method="post">
+                    <input type="hidden" name="id" value="AB-450">
+                    <fieldset>
+                        <label>Nombre</label>
+                        <input type="text" name="nombre" placeholder="Apellido1 Apellido2 Nombre" size="45">
+                    </fieldset>
+                    
+                    <fieldset>
+                        <label>Edad</label>
+                        <input type="number" name="edad" min="18" max="65">
+                    </fieldset>
+                    
+                    <fieldset>
+                        <label>Aficionado a:</label>
+                        Anime <input
+                            type="checkbox"
+                            name="anime">
+                        Drama <input
+                            type="checkbox"
+                            name="drama">
+                        Comedia <input
+                            type="checkbox"
+                            name="comedia">
+                        Documental <input
+                            type="checkbox"
+                            name="documental">
+                    </fieldset>
+                    
+                    <fieldset>
+                        <label>Tipo de horario:</label>
+                        Presencial: <input
+                            type="radio"
+                            name="horario"
+                            value="presencial">
+                        Virtual: <input
+                            type="radio"
+                            name="horario"
+                            value="virtual">
+                        Bimodal: <input
+                            type="radio"
+                            name="horario"
+                            value="bimodal">
+                    </fieldset>
+                    
+                    <fieldset>
+                        <label>Fecha de cita:</label>
+                        Dia: <input
+                            type="date"
+                            name="dia"><br>
+                        Hora: <input
+                            type="time"
+                            name="hora"><br>
+                    </fieldset>
+                    
+                    <fieldset>
+                        <label>Clave de ingreso:</label>
+                        Contraseña: <input
+                            type="password"
+                            name="clave">
+                    </fieldset>
+
+                    <input type="submit" value="enviar" name="enviar"/>
+                </form>
+                
+ 
+                <footer><small>No distribuimos sus datos, confie...</small></footer>
+            </article>
+        </section>
+
+    </body>
+</html>
