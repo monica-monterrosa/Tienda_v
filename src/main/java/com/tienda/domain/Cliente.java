@@ -1,5 +1,6 @@
 
 package com.tienda.domain;
+
 import java.io.Serializable;
 import javax.persistence.*;
 import lombok.Data;
@@ -19,6 +20,10 @@ public class Cliente implements Serializable{
     private String apellidos;
     private String correo;
     private String telefono;
+
+    public Cliente() {
+    }
+  
     
 public Cliente(String nombre, String apellidos, String correo, String telefono){
     this.nombre = nombre;
