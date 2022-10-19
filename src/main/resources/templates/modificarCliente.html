@@ -7,30 +7,39 @@
     </head>
     <body>  
         <h2>Datos de cliente</h2>
+        
         <a th:href="@{/}">Regresar</a>
         <hr/>
         <form th:action="@{/cliente/guardar}"
               method="post"
               th:object="${cliente}">
-            
+            <input type="hidden" name="idCliente" th:field="*{idCliente}"/>
             <fieldset>
                 <label for="nombre">Nombre:</label>
-                <input type="text" name="nombre" th:field="*{nombre}"/>
+                <input type="text" 
+                       placeholder="Nombre"
+                       name="nombre" th:field="*{nombre}"/>
             </fieldset>
             
             <fieldset>
                 <label for="apellidos">Apellidos:</label>
-                <input type="text" name="Apellidos" th:field="*{apellidos}"/>
+                <input type="text"
+                       placeholder="Apellidos"
+                       name="Apellidos" th:field="*{apellidos}"/>
             </fieldset>
             
             <fieldset>
                 <label for="correo">Correo:</label>
-                <input type="email" name="correo" th:field="*{correo}"/>
+                <input type="email"
+                       placeholder="correo@xxx.com"
+                       name="correo" th:field="*{correo}"/>
             </fieldset>
             
             <fieldset>
                 <label for="telefono">Teléfono:</label>
-                <input type="tel" name="telefono" th:field="*{telefono}"/>
+                <input type="tel"
+                       placeholder="9999-9999"
+                       name="telefono" th:field="*{telefono}"/>
             </fieldset>
             <hr/>
             <input type="submit" name="guardar" value="guardar"/>
