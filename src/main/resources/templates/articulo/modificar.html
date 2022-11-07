@@ -1,0 +1,58 @@
+<html xmlns:th="http://www.thymeleaf.org"
+      xmlns="http://www.w3.org/1999/xhtml">
+    <head>
+        <title>TechShop</title>
+        <meta charset="UTF-8">
+        <link href="/css/menu.css" rel="stylesheet" type="text/css"/>      
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    </head>
+    <body>
+        <header th:replace="layout/plantilla :: header"/>
+        <div class="contenido">
+        <h2>Datos de articulo</h2>
+        
+        <a th:href="@{/articulo/listado}">Regresar</a>
+        <hr/>
+        <form th:action="@{/articulo/guardar}"
+              method="post"
+              th:object="${articulo}">
+            <input type="hidden" name="idArticulo" th:field="*{idArticulo}"/>
+            <fieldset>
+                <label for="nombre">Descripción:</label>
+                <input type="text" 
+                       placeholder="Descripcion"
+                       name="descripcion" th:field="*{descripcion}"/>
+            </fieldset>
+            
+            <fieldset>
+                <label for="detalle">Detalle:</label>
+                <input type="text"
+                       placeholder="Detalle"
+                       name="Detalle" th:field="*{detalle}"/>
+            </fieldset>
+            
+            <fieldset>
+                <label for="precio">Precio:</label>
+                <input type="precio"
+                       placeholder="precio"
+                       name="precio" th:field="*{precio}"/>
+            </fieldset>
+            
+            <fieldset>
+                <label for="existencias">Existencias:</label>
+                <input type="text"
+                       placeholder="0"
+                       name="existencias" th:field="*{existencias}"/>
+            </fieldset>
+            
+            <fieldset>
+                <label for="activo">Activo:</label>
+                <input type="number"
+                       name="activo" th:field="*{activo}"/>
+            </fieldset>
+            <hr/>
+            <input type="submit" name="guardar" value="guardar"/>
+        </form>
+        </div>
+    </body>
+</html>
