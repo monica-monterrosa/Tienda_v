@@ -1,8 +1,6 @@
 package com.tienda.controller;
-import com.tienda.dao.ClienteDao;
 import com.tienda.domain.Cliente;
 import com.tienda.service.ClienteService;
-import java.util.Arrays;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -17,28 +15,34 @@ public class ClienteController {
     @Autowired
     private ClienteService clienteService;
     
+    @GetMapping("/cliente/listado")
+    public String inicio(Model model){
+        var clientes = clienteService.getClientes();
+        model.addAttribute("clientes",clientes);
+        return "/cliente/listado";
+    }
     
     @GetMapping("/cliente/nuevo")
     public String clienteNuevo(Cliente cliente){
-        return "modificarCliente";
+        return "/cliente/modificar";
     }
     
      @PostMapping("/cliente/guardar")
     public String clienteGuardar(Cliente cliente){
         clienteService.save(cliente);
-        return "redirect:/";
+        return "redirect:/cliente/listado";
     }
     
     @GetMapping("/cliente/actualiza/{idCliente}")
     public String clienteActualiza(Cliente cliente, Model model){
         cliente=clienteService.getCliente(cliente);
         model.addAttribute("cliente",cliente);
-        return "modificarCliente";
+        return "/cliente/modificar";
     }
     
     @GetMapping("/cliente/elimina/{idCliente}")
     public String clienteElimina(Cliente cliente){
         clienteService.delete(cliente);
-        return "redirect:/";
+        return "redirect:/cliente/listado";
     }
 }
