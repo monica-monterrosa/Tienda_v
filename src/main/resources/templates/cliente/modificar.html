@@ -1,58 +1,73 @@
-<html xmlns:th="http://www.thymeleaf.org"
-      xmlns="http://www.w3.org/1999/xhtml">
-    <head>
-        <title>TechShop</title>
-        <meta charset="UTF-8">
-        <link href="/css/menu.css" rel="stylesheet" type="text/css"/>      
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    </head>
-    <body>
-        <header th:replace="layout/plantilla :: header"/>
-        <div class="contenido">
-        <h2>Datos de cliente</h2>
-        
-        <a th:href="@{/cliente/listado}">Regresar</a>
-        <hr/>
-        <form th:action="@{/cliente/guardar}"
-              method="post"
-              th:object="${cliente}">
-            <input type="hidden" name="idCliente" th:field="*{idCliente}"/>
-            <fieldset>
-                <label for="nombre">Nombre:</label>
-                <input type="text" 
-                       placeholder="Nombre"
-                       name="nombre" th:field="*{nombre}"/>
-            </fieldset>
-            
-            <fieldset>
-                <label for="apellidos">Apellidos:</label>
-                <input type="text"
-                       placeholder="Apellidos"
-                       name="Apellidos" th:field="*{apellidos}"/>
-            </fieldset>
-            
-            <fieldset>
-                <label for="correo">Correo:</label>
-                <input type="email"
-                       placeholder="correo@xxx.com"
-                       name="correo" th:field="*{correo}"/>
-            </fieldset>
-            
-            <fieldset>
-                <label for="telefono">Teléfono:</label>
-                <input type="tel"
-                       placeholder="9999-9999"
-                       name="telefono" th:field="*{telefono}"/>
-            </fieldset>
-            
-            <fieldset>
-                <label for="credito">Limite de credito:</label>
-                <input type="number"
-                       name="credito" th:field="*{credito.limite}"/>
-            </fieldset>
-            <hr/>
-            <input type="submit" name="guardar" value="guardar"/>
-        </form>
-        </div>
-    </body>
-</html>
+<!DOCTYPE html>
+
+<html 
+    xmlns:th="http://www.thymeleaft.org"
+    xmlns="http://www.w3.org/1999/xhtml">
+
+        <head>
+            <title>TechShop</title>
+            <meta charset="UTF-8"/>
+            <link href="/css/menu.css" rel="stylesheet" type="text/css"/>
+            <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+        </head>
+        <body>
+
+            <header th:replace="layout/plantilla :: header"/>
+            <div class="contenido">
+
+                <h2>Datos Clientes</h2>
+
+                <a th:href="@{/cliente/listado}">Regresar</a>
+                    <hr/>
+                    <form th:action="@{/cliente/guardar}"
+                          method="post"
+                          th:object="${cliente}">
+                        <input type="hidden" name="idCliente" th:field="*{idCliente}"/>
+                        
+                        <fieldset>
+                            <label for="nombre">Nombre:</label>
+                            <input type="text"
+                                   name="nombre"
+                                   th:field="*{nombre}"
+                                   required ="true"/>
+                        </fieldset>
+
+                        <fieldset>
+                            <label for="apellidos">Apellidos</label>
+                            <input type="text"
+                                   name="apellidos"
+                                   th:field="*{apellidos}"/>
+                        </fieldset>
+
+                        <fieldset>
+                            <label for="correo">Correo</label>
+                            <input type="email"
+                                   name="correo"
+                                   th:field="*{correo}"/>
+                        </fieldset>
+
+                        <fieldset>
+                            <label for="telefono">Teléfono:</label>
+                            <input type="tel"
+                                   name="telefono"
+                                   th:field="*{telefono}"
+                                   placeholder="8888-8888"
+                                   size="9"/>
+                        </fieldset>
+
+                        <fieldset>
+                            <label for="credito">Límite de Crédito</label>
+                            <input type="number" 
+                                   name="credito" 
+                                   th:field="*{credito.limite}"/>
+                        </fieldset>
+                        <hr/>
+                        <input type="submit" name="guardar" value="guardar"/>
+                    </form>
+            </div>
+
+            <footer th:replace="layout/plantilla :: footer"/>
+        </body>
+
+
+    </html>

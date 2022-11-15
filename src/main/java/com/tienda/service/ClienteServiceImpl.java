@@ -30,6 +30,12 @@ public class ClienteServiceImpl implements ClienteService{
     }
     
     @Override
+    @Transactional(readOnly = true)
+    public List<Cliente> getClientesPorApellidos(String apellidos) {
+        return (List<Cliente>) clienteDao.findByApellidos(apellidos);
+    }
+    
+    @Override
     @Transactional(readOnly=true)
     public Cliente getCliente(Cliente cliente){
     return clienteDao.findById(cliente.getIdCliente()).orElse(null);
