@@ -1,22 +1,22 @@
 <!DOCTYPE html>
 
 <html 
-    xmlns:th="http://www.thymeleaft.org"
-    xmlns="http://www.w3.org/1999/xhtml">
+    xmlns="http://www.w3.org/1999/xhtml"
+    xmlns:th="http://www.thymeleaf.org"
+    xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
 
-        <head>
+        <head th:replace="layout/plantilla :: head">
             <title>TechShop</title>
             <meta charset="UTF-8"/>
-                <link href="/css/menu.css" rel="stylesheet" type="text/css"/>
-                <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-                    </head>
+            <meta name="viewport" content="width=device-width, initial-scale=1.0"/>        
+        </head>
                     <body>
 
                         <header th:replace="layout/plantilla :: header"/>
                         <div class="contenido">
-                            <h2>Datos Clientes</h2>
+                            <h2>[[#{cliente.titulo}]]</h2>
 
-                            <a th:href="@{/cliente/nuevo}">Nuevo Cliente</a>
+                            <a th:href="@{/cliente/nuevo}">[[#{cliente.nuevo}]]</a>
 
 
                                 <div th:if="${clientes !=null and !clientes.empty}">
@@ -24,13 +24,13 @@
                                     <table border="1">
                                         <thead>
                                             <tr>
-                                                <th>Nombre:</th>
-                                                <th>Apellidos:</th>
-                                                <th>Correo:</th>
-                                                <th>Telefono:</th>
-                                                <th>Límite:</th>
-                                                <th>Eliminar:</th>
-                                                <th>Modificar</th>
+                                                <th>[[#{cliente.nombre}]]</th>
+                                                <th>[[#{cliente.apellidos}]]</th>
+                                                <th>[[#{cliente.correo}]]</th>
+                                                <th>[[#{cliente.telefono}]]</th>
+                                                <th>[[#{cliente.limite}]]</th>
+                                                <th>[[#{accion.eliminar}]]</th>
+                                                <th>[[#{accion.actualizar}]]</th>
                                             </tr>
                                         </thead>
                                         <tbody>
@@ -40,17 +40,18 @@
                                                 <td>[[${cliente.correo}]]</td>
                                                 <td>[[${cliente.telefono}]]</td>
                                                 <td style="text-align: right">[[${#numbers.formatDecimal(cliente.credito.limite,3,2)}]]</td>
-                                                <td><a th:href="@{/cliente/elimina/} + ${cliente.idCliente}">Elimina</a></td>
-                                                <td><a th:href="@{/cliente/actualiza/} + ${cliente.idCliente}">Actualiza</a></td>
+                                                <td><a th:href="@{/cliente/elimina/} + ${cliente.idCliente}">[[#{accion.eliminar}]]</a></td>
+                                                <td><a th:href="@{/cliente/actualiza/} + ${cliente.idCliente}">[[#{accion.actualizar}]]</a></td>
 
                                             </tr>
                                         </tbody>
                                     </table>
                                 </div>
+                            
 
                                 <div th:if="${clientes == null and !clientes.empty}">
 
-                                    <h3>NO TENEMOS CLIENTES QUE MOSTRAR</h3>
+                                    <h3>[[#{cliente.no_mostrar}]]</h3>
 
                                     </div>
 
