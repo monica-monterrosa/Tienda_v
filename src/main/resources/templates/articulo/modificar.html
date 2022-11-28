@@ -1,10 +1,10 @@
 <html xmlns:th="http://www.thymeleaf.org"
       xmlns="http://www.w3.org/1999/xhtml">
-    <head>
+    
+     <head th:replace="layout/plantilla :: head">
         <title>TechShop</title>
-        <meta charset="UTF-8">
-        <link href="/css/menu.css" rel="stylesheet" type="text/css"/>      
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta charset="UTF-8"/>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
     </head>
     <body>
         <header th:replace="layout/plantilla :: header"/>
@@ -54,5 +54,6 @@
             <input type="submit" name="guardar" value="guardar"/>
         </form>
         </div>
+        <footer th:replace="layout/plantilla :: footer" />
     </body>
 </html>
