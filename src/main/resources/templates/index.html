@@ -21,7 +21,7 @@
             <div class="row row-cols-3" th:if="${articulos != null and !articulos.empty}">
                 <div class="card" th:each="articulo : ${articulos}" >
                     <!--     <img src="/images/equipo1.jpg" class="card-img-top" alt="equipo">  -->
-                    <img src="../static/img/Marmota.jpg" class="card-img-top" alt=""/>
+                    <img src="/img/Marmota.jpg" class="card-img-top" alt=""/>
                     <div class="card-body">
                         <h5 class="card-title">[[${articulo.descripcion}]]</h5>
                         <h6 class="card-subtitle mb-2 text-muted text-end">[[${new java.text.DecimalFormat('¢#,##0.00').format(articulo.precio)}]]</h6>
